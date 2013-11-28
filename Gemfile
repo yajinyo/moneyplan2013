@@ -24,6 +24,17 @@ group :assets do
 end
 
 gem 'jquery-rails'
+gem 'jquery-ui-rails'
+
+group :development do
+  gem 'pry', '0.9.12.2'
+  gem 'pry-doc', '0.4.6'
+  gem 'pry-rails', '0.3.1'
+  gem 'pry-remote', '0.1.7'
+  gem 'pry-nav', '0.2.3'
+  gem 'pry-debugger'
+  gem 'hirb'
+end
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

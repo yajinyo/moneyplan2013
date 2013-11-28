@@ -1,3 +1,4 @@
+# 明細
 class CreateDetails < ActiveRecord::Migration
   def change
     create_table :details do |t|
