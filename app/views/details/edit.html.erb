@@ -1,6 +1,33 @@
-<h1>Editing detail</h1>
 
-<%= render 'form' %>
 
-<%= link_to 'Show', @detail %> |
-<%= link_to 'Back', details_path %>
+
+<div class="scroll_contents" style="margin-left:10px;">
+  <div class="row-fluid">
+
+    <div id="change_prescription_input_area">
+    <!-- 画面左側 -->
+      <%= render 'form' %>
+
+    </div>
+
+    <div class="span4">
+    <!-- 画面右側 -->
+      <%= render 'list' %>
+    </div>
+  </div>
+</div>
+
+
+
+<!-- 分類ボタン一覧 -->
+<div id="group_buttons">
+  <%= render 'groups/buttons' %>
+</div>
+
+<!-- 種類ボタン一覧 -->
+<div id="kind_buttons">
+  <%= render 'kinds/buttons' %>
+</div>
+
+
+

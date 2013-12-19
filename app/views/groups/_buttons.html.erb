@@ -1,0 +1,43 @@
+<div id="group_buttons" style="height:200px; width:200px">
+
+  <input type="button" class="btn btn-small" value="ないので登録する" onclick="open_group_create_dialog()" />
+  <br /><br />
+
+  <% if groups.size > 0 %>
+    <% groups.each do |group| %>
+      <input type="button" class="btn" style="margin-bottom:10px;" value="<%= group.name %>" onclick="group_selected(<%= group.id %>, '<%= group.name %>')" />
+    <% end %>
+  <% else %>
+    <p class="text-info">登録されていません。</p>
+  <% end %>
+
+</div>
+
+
+
+<!-- グループ登録ダイアログ -->
+<div id="group_create_dialog">
+
+
+
+  <%= form_tag create_group_path, :id => "group_create", :remote => true do %>
+    <br />
+
+    <label class="control-label" for="create_group_name">グループ名：</label>
+    <div class="input-prepend">
+      <input class="span2" id="create_group_name" size="16" type="text" placeholder="グループ名を入力">
+    </div>
+
+    <label class="checkbox inline">
+      <input type="checkbox" id="continue" class="input-small" value="continue"> 続けて登録する
+    </label>
+
+    <input type="submit" class="btn btn-primary" value="登録" />
+    <input type="button" class="btn" value="キャンセル" onclick="dialog_close('group_create_dialog')" />
+  <% end %>
+
+
+
+
+
+</div>

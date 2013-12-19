@@ -40,9 +40,10 @@ class GroupsController < ApplicationController
   # POST /groups
   # POST /groups.json
   def create
-    @group = Group.new(params[:group])
+    @group = Group.new(params[:group_create])
 
-    respond_to do |format|
+      @group.save
+=begin
       if @group.save
         format.html { redirect_to @group, notice: 'Group was successfully created.' }
         format.json { render json: @group, status: :created, location: @group }
@@ -50,7 +51,10 @@ class GroupsController < ApplicationController
         format.html { render action: "new" }
         format.json { render json: @group.errors, status: :unprocessable_entity }
       end
-    end
+=end
+      render "create.js.erb"
+
+
   end
 
   # PUT /groups/1

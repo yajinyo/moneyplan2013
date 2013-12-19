@@ -1,0 +1,23 @@
+
+
+
+
+
+var errors = <%=@errors>;
+
+if (errors == null) {
+  dialog_close('group_create_dialog');
+  $('#group_buttons').html("<%=j render :partial => 'groups/buttons' %>");
+
+
+} else {
+  $('#group_buttons').html("<%=j render :partial => 'groups/buttons' %>");
+
+
+
+
+}
+
+
+
+

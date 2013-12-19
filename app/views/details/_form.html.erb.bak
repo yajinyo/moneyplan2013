@@ -12,12 +12,8 @@
   <% end %>
 
   <div class="field">
-
-    分類：<%= f.hidden_field :group_id %>
-    種類：<%= f.hidden_field :kind_id %>
-    商品名：<%= f.text_field :article %>
-    金額：<%= f.text_field :price %>
-
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
   </div>
   <div class="actions">
     <%= f.submit %>

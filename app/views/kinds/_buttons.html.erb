@@ -1,0 +1,14 @@
+<div id="kind_buttons" style="height:200px; width:200px">
+
+  <input type="button" class="btn btn-small" value="ないので登録する" onclick="kind_create()" />
+  <br /><br />
+
+  <% if kinds.size > 0 %>
+    <% kinds.each do |kind| %>
+      <input type="button" class="btn" style="margin-bottom:10px;" value="<%= kind.name %>" onclick="kind_selected(<%= kind.id %>, '<%= kind.name %>')" />
+    <% end %>
+  <% else %>
+    <p class="text-info">登録されていません。</p>
+  <% end %>
+
+</div>

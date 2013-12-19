@@ -1,0 +1,24 @@
+function open_group_create_dialog() {
+
+  var options = {
+                  title: '分類登録',
+                  autoOpen: false,
+                  width: 300,
+                  height: 220,
+                  draggable: false,
+                  position: "center",
+                  resizable: false,
+                  modal: true,
+                  close: function(){$("#dialog_medicine_quantity").dialog('destroy')}
+                }
+
+  $("#group_create_dialog").dialog(options);
+}
+
+
+
+
+
+
+
+

@@ -1,0 +1,22 @@
+<table class="table table-condensed">
+  <thead>
+    <tr>
+      <th>ï™óﬁ</th>
+      <th>éÌóﬁ</th>
+      <th>è§ïiñº</th>
+      <th>ã‡äz</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @details.each do |detail| %>
+      <tr>
+        <td><%= detail.group.name %></td>
+        <td><%= detail.kind.name %></td>
+        <td><%= detail.article %></td>
+        <td><%= detail.price %></td>
+      </tr>
+    <% end %>
+  </tbody>
+
+</table>
