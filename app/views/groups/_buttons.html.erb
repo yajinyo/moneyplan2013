@@ -3,8 +3,8 @@
   <input type="button" class="btn btn-small" value="ないので登録する" onclick="open_group_create_dialog()" />
   <br /><br />
 
-  <% if groups.size > 0 %>
-    <% groups.each do |group| %>
+  <% if @groups.size > 0 %>
+    <% @groups.each do |group| %>
       <input type="button" class="btn" style="margin-bottom:10px;" value="<%= group.name %>" onclick="group_selected(<%= group.id %>, '<%= group.name %>')" />
     <% end %>
   <% else %>
@@ -20,12 +20,13 @@
 
 
 
-  <%= form_tag create_group_path, :id => "group_create", :remote => true do %>
+  <%= form_for(@group, :html => {:method => "post", :remote => true}) do |f| %>
     <br />
 
     <label class="control-label" for="create_group_name">グループ名：</label>
     <div class="input-prepend">
-      <input class="span2" id="create_group_name" size="16" type="text" placeholder="グループ名を入力">
+      <!--input class="span2" id="create_group_name" size="16" type="text" placeholder="グループ名を入力"-->
+      <%= f.text_field :name, :html => {:placeholder => "グループ名を入力"} %>
     </div>
 
     <label class="checkbox inline">

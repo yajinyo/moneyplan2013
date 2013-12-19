@@ -40,7 +40,7 @@ class GroupsController < ApplicationController
   # POST /groups
   # POST /groups.json
   def create
-    @group = Group.new(params[:group_create])
+    @group = Group.new(params[:group])
 
       @group.save
 =begin

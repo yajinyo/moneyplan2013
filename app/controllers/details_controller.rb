@@ -3,11 +3,12 @@ class DetailsController < ApplicationController
   # GET /details.json
   def index
     @details = Detail.all
+    @groups = Group.all
+    @group = Group.new()
 
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @details }
-    end
+
+
+
   end
 
   # GET /details/1
