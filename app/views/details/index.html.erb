@@ -1,31 +1,28 @@
+<div class="container" style="margin-left:10px;">
+  <div class="row">
 
-
-
-<div class="scroll_contents" style="margin-left:10px;">
-  <div class="row-fluid">
-
-    <div id="change_prescription_input_area">
+    <div class="span5">
     <!-- 画面左側 -->
       <%= render 'form' %>
-
     </div>
 
     <div class="span4">
     <!-- 画面右側 -->
       <%= render 'list' %>
     </div>
+
   </div>
 </div>
 
 
 
 <!-- 分類ボタン一覧 -->
-<div id="group_buttons">
+<div id="group_buttons" style="display:none">
   <%= render 'groups/buttons' %>
 </div>
 
 <!-- 種類ボタン一覧 -->
-<div id="kind_buttons">
+<div id="kind_buttons" style="display:none">
   <%#= render 'kinds/buttons' %>
 </div>
 

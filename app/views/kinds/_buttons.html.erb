@@ -5,7 +5,7 @@
 
   <% if kinds.size > 0 %>
     <% kinds.each do |kind| %>
-      <input type="button" class="btn" style="margin-bottom:10px;" value="<%= kind.name %>" onclick="kind_selected(<%= kind.id %>, '<%= kind.name %>')" />
+      <input type="button" class="btn" style="margin-bottom:10px;" value="<%= kind.name %>" onclick="selected('kind', <%= kind.id %>, '<%= kind.name %>')" />
     <% end %>
   <% else %>
     <p class="text-info">登録されていません。</p>

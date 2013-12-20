@@ -5,7 +5,7 @@
 
   <% if @groups.size > 0 %>
     <% @groups.each do |group| %>
-      <input type="button" class="btn" style="margin-bottom:10px;" value="<%= group.name %>" onclick="group_selected(<%= group.id %>, '<%= group.name %>')" />
+      <input type="button" class="btn" style="margin-bottom:10px;" value="<%= group.name %>" onclick="selected('group', <%= group.id %>, '<%= group.name %>')" />
     <% end %>
   <% else %>
     <p class="text-info">登録されていません。</p>
@@ -16,9 +16,9 @@
 
 
 <!-- グループ登録ダイアログ -->
-<div id="group_create_dialog">
+<div id="group_create_dialog" style="display:none">
 
-
+  <div id="group_create_massege"></div>
 
   <%= form_for(@group, :html => {:method => "post", :remote => true}) do |f| %>
     <br />
@@ -26,11 +26,11 @@
     <label class="control-label" for="create_group_name">グループ名：</label>
     <div class="input-prepend">
       <!--input class="span2" id="create_group_name" size="16" type="text" placeholder="グループ名を入力"-->
-      <%= f.text_field :name, :html => {:placeholder => "グループ名を入力"} %>
+      <%= f.text_field :name, id="create_group_name", :html => {:placeholder => "グループ名を入力"} %>
     </div>
 
     <label class="checkbox inline">
-      <input type="checkbox" id="continue" class="input-small" value="continue"> 続けて登録する
+      <input type="checkbox" id="group_continue" class="input-small" value="continue"> 続けて登録する
     </label>
 
     <input type="submit" class="btn btn-primary" value="登録" />

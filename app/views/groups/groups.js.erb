@@ -9,14 +9,15 @@ function open_group_create_dialog() {
                   position: "center",
                   resizable: false,
                   modal: true,
-                  close: function(){$("#dialog_medicine_quantity").dialog('destroy')}
+                  close: close_group_create_dialog()
                 }
 
   $("#group_create_dialog").dialog(options);
 }
 
-
-
+function close_group_create_dialog() {
+  $("#dialog_medicine_quantity").dialog('destroy');
+}
 
 
 

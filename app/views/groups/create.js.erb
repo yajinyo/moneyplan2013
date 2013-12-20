@@ -4,18 +4,21 @@
 
 
 var errors = <%=@errors>;
+var continue = $("#group_continue").attr("checked");
+
 
 if (errors == null) {
-  dialog_close('group_create_dialog');
-  $('#group_buttons').html("<%=j render :partial => 'groups/buttons' %>");
+  $("#group_create_massege").val("");
+  $("#create_group_name").val("");
+  close_group_create_dialog();
+}else{
+  $("#group_create_massege").val(errors);
+}
 
 
-} else {
-  $('#group_buttons').html("<%=j render :partial => 'groups/buttons' %>");
 
-
-
-
+if (continue) {
+  open_group_create_dialog();
 }
 
 
