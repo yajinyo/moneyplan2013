@@ -1,0 +1,26 @@
+<!-- グループ登録ダイアログ -->
+<div id="group_create_dialog" style="display:none">
+  <div id="group_create_massege"></div>
+
+  <%= form_for(@group, :url => {:controller => "groups", :action => "create"}, :html => {:class=>"form-horizontal", :remote => true}) do |f| %>
+    <fieldset>
+
+    <div class="control-group">
+      <label class="control-label" for="focusedInput">カテゴリ名</label>
+      <div class="controls">
+        <%= f.text_field :name, :id => "create_group_name", :placeholder => "カテゴリ名を入力" %>
+      </div>
+<%#
+      <label class="checkbox inline">
+        <input type="checkbox" id="group_continue" class="input-small" value="continue"> 続けて登録する
+      </label>
+%>
+      <div class="form-actions">
+        <%= f.submit "登録", :class => "btn btn-primary" %>
+        <input type="button" class="btn" value="キャンセル" onclick="close_group_create_dialog()" />
+      </div>
+    </fieldset>
+
+  <% end %>
+
+</div>

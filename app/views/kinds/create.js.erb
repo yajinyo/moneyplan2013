@@ -1,0 +1,47 @@
+
+
+
+<%#var errors = <%=@errors>;%>
+<%#var checked = $("#kind_continue").attr("checked");%>
+
+var errors = null;
+var checked = 'undefined';
+
+//alert(checked);
+
+
+if (errors == null) {
+  $("#kind_create_massege").val("");
+  $("#create_kind_name").val("");
+  close_kind_create_dialog();
+
+
+  // グループ一覧書き換え
+  var url = "kinds/get_buttons";
+//alert("url:" + url);
+
+  $.get(url, {},
+    function(data){
+      $('#kind_buttons_list').find('*').remove();
+      $('#kind_buttons_list').append(data);
+    });
+
+
+
+
+
+
+}else{
+  $("#kind_create_massege").val(errors);
+}
+
+
+
+if (checked == 'checked') {
+  open_kind_create_dialog();
+}
+
+
+
+
+

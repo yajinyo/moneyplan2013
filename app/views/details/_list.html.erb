@@ -11,10 +11,10 @@
   <tbody>
     <% @details.each do |detail| %>
       <tr>
-        <td><%= detail.group.name %></td>
-        <td><%= detail.kind.name %></td>
-        <td><%= detail.article %></td>
-        <td><%= detail.price %></td>
+        <td><%= detail.group.blank? ? "" : detail.group.name %></td>
+        <td><%= detail.kind.blank? ? "" : detail.kind.name %></td>
+        <td><%= detail.article.blank? ? "" : detail.article %></td>
+        <td><%= detail.price.blank? ? "" : detail.price %></td>
       </tr>
     <% end %>
   </tbody>

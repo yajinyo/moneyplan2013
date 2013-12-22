@@ -1,25 +1,46 @@
 
 
 
+<%#var errors = <%=@errors>;%>
+<%#var checked = $("#group_continue").attr("checked");%>
 
+var errors = null;
+var checked = 'undefined';
 
-var errors = <%=@errors>;
-var continue = $("#group_continue").attr("checked");
+//alert(checked);
 
 
 if (errors == null) {
   $("#group_create_massege").val("");
   $("#create_group_name").val("");
   close_group_create_dialog();
+
+
+  // グループ一覧書き換え
+  var url = "groups/get_buttons";
+//alert("url:" + url);
+
+  $.get(url, {},
+    function(data){
+      $('#group_buttons_list').find('*').remove();
+      $('#group_buttons_list').append(data);
+    });
+
+
+
+
+
+
 }else{
   $("#group_create_massege").val(errors);
 }
 
 
 
-if (continue) {
+if (checked == 'checked') {
   open_group_create_dialog();
 }
+
 
 
 

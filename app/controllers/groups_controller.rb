@@ -37,24 +37,13 @@ class GroupsController < ApplicationController
     @group = Group.find(params[:id])
   end
 
-  # POST /groups
-  # POST /groups.json
+
+####################################################################
   def create
     @group = Group.new(params[:group])
+    @group.save
 
-      @group.save
-=begin
-      if @group.save
-        format.html { redirect_to @group, notice: 'Group was successfully created.' }
-        format.json { render json: @group, status: :created, location: @group }
-      else
-        format.html { render action: "new" }
-        format.json { render json: @group.errors, status: :unprocessable_entity }
-      end
-=end
-      render "create.js.erb"
-
-
+    render "create.js.erb"
   end
 
   # PUT /groups/1
@@ -79,9 +68,17 @@ class GroupsController < ApplicationController
     @group = Group.find(params[:id])
     @group.destroy
 
+
     respond_to do |format|
       format.html { redirect_to groups_url }
       format.json { head :no_content }
     end
   end
+
+#######################################################################
+  def get_buttons
+    @groups = Group.all
+    render :partial => "buttons_list"
+  end
+
 end

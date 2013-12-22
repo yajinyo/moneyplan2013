@@ -1,23 +1,61 @@
-<%= form_for @details do |f| %>
+<%= form_for(@detail, :html =>{:class=>"form-horizontal"}) do |f| %>
 
-    <div id="open_groups">
-      <%= f.hidden_field :group_id, :id => "selected_group_id" %>
-      <!--input type="hidden" id="selected_group_id" name="group_id"-->
-      分類：<div id="selected_group_name"></div>
-      <a >
+  <fieldset>
+    <legend>何買ったの？</legend>
+    
+    <div class="control-group">
+      <label class="control-label" for="focusedInput">カテゴリ</label>
+      <div class="controls">
+        <div id="open_groups" class="label label-info" style="cursor:pointer;">選ぶ？</div>
+        <%= f.hidden_field :group_id, :id => "selected_group_id" %>
+        <span id="selected_group_name" style="font-size:large;"></span>
+        <!-- 分類ボタン一覧 -->
+        <div id="group_buttons" style="display:none">
+          <%= render 'groups/buttons' %>
+        </div>
+      </div>
     </div>
-    <div id="open_kinds">
-      <%= f.hidden_field :kind_id, :id => "selected_kind_id" %>
-      <!--input type="hidden" id="selected_kind_id" name="kind_id"-->
-      種類：<div id="selected_kind_name"></div>
+
+    <div class="control-group">
+      <label class="control-label" for="focusedInput">種類</label>
+      <div class="controls">
+        <div id="open_kinds" class="label label-info" style="cursor:pointer;">選ぶ？</div>
+        <%= f.hidden_field :kind_id, :id => "selected_kind_id" %>
+        <span id="selected_kind_name" style="font-size:large;"></span>
+        <!-- 種類ボタン一覧 -->
+        <div id="kind_buttons" style="display:none">
+          <%= render 'kinds/buttons' %>
+        </div>
+      </div>
     </div>
-    商品名：<%= f.text_field :article %>
-    金額：<%= f.text_field :price %>
 
-  </div>
-  <div class="actions">
-    <%= f.submit "登録", class => "btn btn-primary" %>
-    <!--input type="submit" class="btn btn-primary" value="登録" /-->
-  </div>
+    <div class="control-group">
+      <label class="control-label" for="focusedInput">商品名</label>
+      <div class="controls">
+        <%= f.text_field :article %>
+      </div>
+    </div>
 
-<%=end%>
+    <div class="control-group">
+      <label class="control-label" for="focusedInput">金額</label>
+      <div class="controls">
+        <%= f.text_field :price %>
+      </div>
+    </div>
+  
+    <div class="form-actions">
+      <%= f.submit "登録", :class => "btn btn-primary" %>
+      <button type="reset" class="btn">キャンセル</button>
+    </div>
+
+  </fieldset>
+
+
+<% end %>
+
+
+
+
+
+<%= render 'groups/create_dialog' %>
+<%= render 'kinds/create_dialog' %>

@@ -1,10 +1,15 @@
 class DetailsController < ApplicationController
-  # GET /details
-  # GET /details.json
+
+  #########################################
   def index
-    @details = Detail.all
     @groups = Group.all
+    @kinds = Kind.all
+    @details = Detail.all
+
     @group = Group.new()
+    @kind = Kind.new()
+    @detail = Detail.new()
+
 
 
 
@@ -21,6 +26,7 @@ class DetailsController < ApplicationController
       format.json { render json: @detail }
     end
   end
+
 
   # GET /details/new
   # GET /details/new.json
@@ -42,16 +48,16 @@ class DetailsController < ApplicationController
   # POST /details.json
   def create
     @detail = Detail.new(params[:detail])
+    @detail.save
 
-    respond_to do |format|
-      if @detail.save
-        format.html { redirect_to @detail, notice: 'Detail was successfully created.' }
-        format.json { render json: @detail, status: :created, location: @detail }
-      else
-        format.html { render action: "new" }
-        format.json { render json: @detail.errors, status: :unprocessable_entity }
-      end
-    end
+
+
+
+    redirect_to  :action => :index
+
+
+
+
   end
 
   # PUT /details/1

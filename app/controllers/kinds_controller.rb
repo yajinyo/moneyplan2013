@@ -41,16 +41,9 @@ class KindsController < ApplicationController
   # POST /kinds.json
   def create
     @kind = Kind.new(params[:kind])
+    @kind.save
 
-    respond_to do |format|
-      if @kind.save
-        format.html { redirect_to @kind, notice: 'Kind was successfully created.' }
-        format.json { render json: @kind, status: :created, location: @kind }
-      else
-        format.html { render action: "new" }
-        format.json { render json: @kind.errors, status: :unprocessable_entity }
-      end
-    end
+    render "create.js.erb"
   end
 
   # PUT /kinds/1
@@ -80,4 +73,12 @@ class KindsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+#######################################################################
+  def get_buttons
+    @kinds = Kind.all
+    render :partial => "buttons_list"
+  end
+
+
 end

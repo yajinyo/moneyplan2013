@@ -1,0 +1,7 @@
+  <% if @groups.size > 0 %>
+    <% @groups.each do |group| %>
+      <input type="button" class="btn" style="margin-bottom:10px;" value="<%= group.name %>" onClick="selected('group', '<%= group.id %>', '<%= group.name %>')" />
+    <% end %>
+  <% else %>
+    <p class="text-info">登録されていません。</p>
+  <% end %>

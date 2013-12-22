@@ -5,10 +5,17 @@ Moneyplan2013::Application.routes.draw do
   resources :articles
 
 
-  resources :kinds
+  resources :kinds do
+    collection do
+      get :get_buttons
+    end
+  end
 
-
-  resources :groups
+  resources :groups do
+    collection do
+      get :get_buttons
+    end
+  end
 
 
   # The priority is based upon order of creation:

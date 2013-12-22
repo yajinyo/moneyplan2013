@@ -1,0 +1,26 @@
+<!-- 種類登録ダイアログ -->
+<div id="kind_create_dialog" style="display:none">
+  <div id="kind_create_massege"></div>
+
+  <%= form_for(@kind, :url => {:controller => "kinds", :action => "create"}, :html => {:class=>"form-horizontal", :remote => true}) do |f| %>
+    <fieldset>
+
+    <div class="control-kind">
+      <label class="control-label" for="focusedInput">種類名</label>
+      <div class="controls">
+        <%= f.text_field :name, :id => "create_kind_name", :placeholder => "種類名を入力" %>
+      </div>
+<%#
+      <label class="checkbox inline">
+        <input type="checkbox" id="kind_continue" class="input-small" value="continue"> 続けて登録する
+      </label>
+%>
+      <div class="form-actions">
+        <%= f.submit "登録", :class => "btn btn-primary" %>
+        <input type="button" class="btn" value="キャンセル" onclick="close_kind_create_dialog()" />
+      </div>
+    </fieldset>
+
+  <% end %>
+
+</div>
