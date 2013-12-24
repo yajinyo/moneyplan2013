@@ -58,7 +58,6 @@ function open_kind_create_dialog() {
 
   $("#kind_create_dialog").dialog(options);
   $("#kind_create_dialog").dialog("open");
-
 }
 
 function close_kind_create_dialog() {
